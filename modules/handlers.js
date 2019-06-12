@@ -25,13 +25,15 @@ exports.upload = function(request, response) {
     });
 };
 
-// exports.show = function(request, response) {
-//     fs.readFile("uploads/webdriverio.png", "binary", function(error, file) {
-//         response.writeHead(200, { "Content-Type": "image/png" });
-//         response.write(file, "binary");
-//         response.end();
-//     });
-// };
+exports.indexCSS = function(request, response) {
+    console.log("Rozpoczynam obsługę żądania indexCSS.");
+
+    fs.readFile("index.css", function(err, css) {
+        response.writeHead(200, { "Content-Type": "text/css; charset=utf-8" });
+        response.write(css);
+        response.end();
+    });
+};
 
 exports.error = function(request, response) {
     console.log("Nie wiem co robić.");
